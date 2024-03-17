@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <!-- <link rel="stylesheet" href="styles.css"> -->
+  
+<style>
+    :root {
+  --lightblk: #252930;
+  --blk: #111417;
+}
+
+
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+list-style: none;
+text-decoration: none;
+font-family: "Raleway", sans-serif;
+}
+
+.container__bg {
+background: #fafafa;
+}
+
+
+#upload-section{
+    max-width: 800px;
+    min-height: 60vh;
+    margin:  auto;
+    padding-top: 10%;
+    /* padding-top: 15%;
+    padding-left: 15%; */
+    /* margin: 10%;
+    padding: 20%; */
+    /* background-color: #3a3030; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#coin-details {
+    display: none; /* Hide initially, show after coin detection */
+}
+
+#coinImageDisplay {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#predictedPrice {
+    font-weight: bold;
+}
+
+
+
+
+/* color -#F85A40 */
+a {
+color: black;
+}
+.row {
+display: flex;
+}
+.lightblack {
+color: #707070;
+}
+
+.blackish {
+color: rgb(255, 255, 255);
+}
+
+.column {
+display: block;
+flex-direction: column;
+}
+
+.redish {
+color: #f85a40;
+}
+
+.white {
+color: white;
+}
+
+.nav-logo {
+display: flex;
+justify-content: space-between;
+margin: 20px 0;
+}
+
+.btn {
+padding: 0.85em 2em;
+border-radius: 5px;
+border: none;
+font-family: "Raleway", sans-serif;
+font-size: 0.95rem;
+cursor: pointer;
+}
+
+#one {
+/* min-height:100vh;  */
+/* background-image: linear-gradient(75deg, rgba(54, 46, 46, 0.64) 8%, transparent); */
+/* url("https://png.pngtree.com/thumb_back/fh260/background/20230516/pngtree-some-ancient-coins-in-a-pile-on-a-table-image_2566271.jpg"); */
+background: #000;
+background-position: center;
+background-size: cover;
+
+} 
+
+#nav {
+display: flex;
+flex-direction: column;
+}
+#nav ul {
+text-align: center;
+margin: 0px 15px;
+display: none;
+}
+
+#nav ul li {
+background: white;
+padding: 15px;
+}
+#nav ul li:nth-of-type(4)::after {
+content: "\2228";
+color: #fff;
+font-size: 10px;
+vertical-align: top;
+}
+#nav ul li:nth-of-type(1) a {
+padding-bottom: 10px;
+border-bottom: 0.25px solid white;
+}
+
+#nav ul li a {
+color: black;
+padding: 11em 0em;
+text-transform: uppercase;
+font-family: "Raleway", sans-serif;
+font-weight: bold;
+cursor: pointer;
+}
+#nav ul li a:nth-of-type(3) {
+color: black;
+}
+
+#nav ul li + li a:hover {
+box-shadow: 1px 14px 0px -1px rgba(0, 0, 0, 0),
+-1px 19px 0px -9px rgba(255, 255, 255, 1);
+
+transition: 0.1s;
+}
+#nav ul li:first-child a {
+color: #f85a40;
+}
+.nav-heading > span {
+color: white;
+display: flex;
+gap: 10px;
+align-items: center;
+}
+
+.nav-heading > span:hover {
+color: #f85a40;
+}
+
+.logo:hover {
+color: #f85a40;
+}
+
+.nav-links .fa-moon {
+display: none;
+cursor: pointer;
+}
+
+.hide {
+display: none;
+}
+
+.nav-heading {
+font-size: 30px;
+font-family: "Raleway", sans-serif;
+font-weight: bolder;
+align-items: center;
+display: flex;
+gap: 7px;
+margin-left: 15px;
+}
+
+.nav-links .search {
+background: white;
+border-radius: 15px;
+padding: 0.5em;
+border: 0.6px solid rgb(171, 162, 162);
+}
+.search-btn {
+border: none;
+background: white;
+margin: 20px 0;
+}
+
+.nav-links input {
+border: none;
+outline: none;
+}
+.search-section {
+background: white;
+margin-top: 20px;
+padding: 10px;
+}
+
+.hamburger {
+display: flex;
+color: white;
+gap: 20px;
+align-items: center;
+margin-right: 10px;
+}
+.hamburger .fa-bars {
+padding: 0.5em;
+background: #f85a40;
+color: #fff;
+border-radius: 3px;
+}
+.content {
+padding-left: 5%;
+}
+
+.text-content {
+display: flex;
+flex-direction: column;
+margin: 0 auto;
+
+padding: 11rem 0;
+}
+.text-content > h1 {
+width: 440px;
+font-size: 38px;
+font-weight: 300;
+font-family: "Raleway", sans-serif;
+margin-bottom: 20px;
+line-height: 55px;
+}
+
+.text-content > h4 {
+font-size: 1.15rem;
+letter-spacing: 0.35px;
+font-weight: lighter;
+font-family: "Raleway", sans-serif;
+margin-bottom: 55px;
+}
+.two-button {
+display: flex;
+gap: 10px;
+margin-bottom: 20px;
+}
+
+.w-btn {
+color: #1a2c79;
+}
+.w-btn:hover {
+background: transparent;
+color: white;
+border: 0.55px solid white;
+transition: 0.55s;
+}
+.t-btn {
+background: transparent;
+border: 0.55px solid white;
+color: white;
+}
+.t-btn:hover {
+color: black;
+background: white;
+border: none;
+transition: 0.55s;
+}
+
+.new-nav {
+position: fixed;
+width: 100vw;
+z-index: 10 !important;
+background: #fff;
+}
+
+/* 
+=======
+half half half
+=======
+*/
+#one-half {
+padding: 7% 3% 7% 3%;
+font-family: "Raleway", sans-serif;
+}
+#one-half span > img {
+width: 100%;
+}
+.half__text > h1 {
+padding: 20px 0px;
+font-size: 30px;
+font-weight: 600;
+}
+
+.half__text p {
+line-height: 25px;
+font-size: 17px;
+color: #707070;
+}
+
+.half__boxes {
+display: flex;
+gap: 40px;
+}
+.box > h2 {
+font-family: "Roboto", sans-serif;
+font-size: 20px;
+padding: 0px 0px 15px 0px;
+}
+.box > p {
+font-size: 16px;
+letter-spacing: 1px;
+color: #707070;
+}
+.box span > i {
+color: #f85a40;
+font-size: 35px;
+padding: 25px 0px 10px 0px;
+}
+
+/* 
+=======
+heading
+=======
+*/
+
+.heading {
+text-align: center;
+font-family: "Raleway", sans-serif;
+
+font-size: 1.75rem;
+}
+/* .heading>p{
+margin: 0 auto;
+max-width: 445px;
+
+} */
+
+.black {
+color: black;
+}
+
+/* 
+=======
+two
+======= 
+*/
+
+.info span > img {
+width: 100%;
+}
+
+.container {
+padding: 10%;
+}
+
+.info {
+text-align: start;
+line-height: 30px;
+letter-spacing: 1px;
+
+box-shadow: 0 1px 1px 0 rgb(10 16 34 / 20%);
+
+font-family: "Raleway", sans-serif;
+
+border: 0.25px solid #fff;
+}
+
+.info__text h1 {
+font-weight: 600;
+font-size: 20px;
+padding: 10px;
+}
+
+.info__text p {
+padding: 10px;
+color: #707070;
+}
+
+.info__text h5 {
+color: #f85a40;
+padding: 10px;
+}
+
+.info:hover {
+box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5);
+}
+
+.info span > img {
+width: 100%;
+}
+
+.info__text {
+padding: 10px;
+}
+
+.info__text > p {
+line-height: 20px;
+}
+
+.info {
+margin-bottom: 30px;
+}
+
+/*
+============
+four four four
+============
+*/
+#four {
+padding: 15px;
+}
+#four article h1 {
+font-size: 30px;
+font-family: "Raleway", sans-serif;
+font-weight: 600;
+}
+
+#four article p {
+margin-top: 20px;
+font-size: 16px;
+line-height: 28px;
+letter-spacing: 0.4px;
+color: #707070;
+font-family: "Raleway", sans-serif;
+text-align: justify;
+}
+
+.article__icon {
+display: flex;
+gap: 70px;
+margin: 40px 0px;
+}
+
+.customer__info span > i {
+color: #1a2c79;
+
+font-size: 25px;
+}
+
+.customer__info span {
+font-weight: bold;
+font-size: 25px;
+}
+.some__info {
+display: flex;
+
+gap: 30px;
+}
+.some__info img {
+border-radius: 50%;
+}
+
+.some__info p {
+color: #707070;
+font-size: 17px;
+letter-spacing: 0.4px;
+line-height: 24px;
+}
+.four__text > h1 {
+font-size: 70px;
+font-weight: 300;
+color: #1a2c79;
+height: 30px;
+}
+
+.four__text > p {
+font-size: 15.55px;
+}
+.four__text > h4 {
+margin: 20px 0px;
+color: #1a2c79;
+}
+
+/* five five five five */
+
+#five {
+padding: 0px 20px 0px 20px;
+}
+.dog__image {
+display: flex;
+justify-content: center;
+}
+
+.dog__box {
+padding: 20px 0px;
+}
+
+.dog__box span > i {
+font-size: 22px;
+padding: 10px 0px;
+color: #f85a40;
+}
+
+.dog__box h4 {
+font-size: 20px;
+font-weight: 600;
+padding: 10px 0px;
+}
+
+.dog__box p {
+color: #707070;
+}
+#six {
+background: url(https://png.pngtree.com/background/20230625/original/pngtree-illustration-of-chinese-festival-elements-featuring-3d-rendered-ancient-gold-coins-picture-image_4054786.jpg);
+background-position: top;
+background-attachment: fixed;
+color: white;
+padding: 80px 3%;
+}
+
+#six h1 {
+font-size: 33px;
+font-weight: 600;
+line-height: 45px;
+letter-spacing: 1px;
+margin: 20px 0 20px 0;
+}
+
+/* seven seven seven */
+
+#seven .info h5 {
+color: #1a2c79;
+}
+
+#seven pre {
+color: #1a2c79;
+font-style: italic;
+font-weight: 500;
+font-size: 15px;
+}
+#seven {
+padding-top: 50px;
+}
+
+/* eight eight eight */
+
+#eight {
+background: #060606;
+color: #fff;
+padding: 90px 3%;
+}
+
+/* #eight span>i::after{
+content: "Dogs Care";
+margin-left: 10px;
+cursor: pointer;
+
+
+
+
+
+}
+.dog__care span>i{
+
+}
+.dog__care span>i:hover {
+color: #F85A40;
+}
+
+
+.dog__care span>i:hover::after {
+color: #F85A40;
+font-size: 20px;
+transition: 1s;
+
+
+
+} */
+
+.dog__care span {
+font-size: 27px;
+font-family: "Raleway", sans-serif;
+font-weight: 600;
+}
+
+.dog__care span > i {
+color: #f85a40;
+margin-right: 7px;
+font-size: 30px;
+}
+.dog__care p {
+width: 90%;
+color: #f4f4f4ce;
+line-height: 29px;
+margin: 20px 0px;
+}
+.categories {
+display: flex;
+gap: 90px;
+}
+.dog__categories {
+margin-bottom: 20px;
+}
+.dog__categories > h3 {
+margin: 0px 0px 30px 0px;
+}
+.categories ul li {
+line-height: 30px;
+font-size: 1rem;
+color: #f4f4f4ce;
+}
+
+.newsletter > h3 + h3 {
+margin: 20px 0px;
+}
+.newsletter span {
+display: flex;
+padding-bottom: 20px;
+}
+
+.newsletter span > input {
+padding: 15px 180px 15px 0px;
+}
+
+.newsletter span > button {
+padding: 15px 50px;
+background: #f85a40;
+color: #fff;
+font-size: 20px;
+}
+.newsletter {
+margin-bottom: 55px;
+}
+.footer__container {
+border-bottom: 0.15px solid #707070;
+}
+
+.copyright > p {
+margin: 20px 0px;
+text-align: center;
+font-size: 14px;
+line-height: 27px;
+}
+
+.copyright p > strong {
+color: #f85a40;
+}
+.copyright p > strong:hover {
+color: #fff;
+border-bottom: 0.25px solid #fff;
+transition: 1.75s;
+}
+
+.share {
+justify-content: center;
+display: flex;
+}
+
+.share div {
+border-radius: 25px;
+background: #222222;
+width: 35px;
+height: 35px;
+margin-right: 10px;
+align-items: center;
+display: flex;
+justify-content: center;
+}
+.share div:hover {
+background: #fafafa;
+color: #f85a40;
+transition: 0.75s;
+cursor:pointer;
+}
+.dark-mode {
+/* filter: invert(1) hue-rotate(180deg); */
+background: #222222;
+color: white;
+}
+
+/* gallery gallery gallery gallery */
+
+.first__row span > img {
+width: 100%;
+height: auto;
+max-width: 275px;
+position: relative;
+cursor: pointer;
+}
+.first__row span,
+.second__row span {
+position: relative;
+}
+/* .first__row span::before,
+.second__row span::before {
+content: '';
+position: absolute;
+top:0;
+left:0;
+width: 50%;
+height: 100%;
+background: rgba(255,255,255,.1);
+overflow: hidden;
+
+
+} */
+.first__row span::after,
+.second__row span::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0%;
+width: 30%;
+height: 100%;
+background: linear-gradient(
+90deg,
+transparent,
+rgba(255, 255, 255, 0.4),
+transparent
+);
+transition: 0.5s;
+}
+
+.first__row span:hover::after,
+.second__row span:hover::after {
+content: "";
+position: absolute;
+left: 100%;
+display: inline;
+}
+.gallery__container {
+max-width: 1170px;
+font-size: 0;
+margin: 0 auto;
+padding: 40px 3% 0px 3%;
+}
+.first__column {
+width: 25%;
+font-size: 0;
+}
+
+.first__column span > img {
+width: 100%;
+height: auto;
+max-width: 275px;
+}
+
+.big__image {
+width: 50%;
+}
+.second__row span > img {
+width: 100%;
+height: auto;
+max-width: 540px;
+}
+
+@media screen and (min-width: 995px) {
+#nav {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+#nav ul {
+display: flex !important;
+}
+#nav ul li {
+background: none;
+}
+.search-section {
+background: none;
+}
+#nav ul li a {
+padding: 0px 10px;
+color: #fff;
+font-size: medium;
+font-weight: bold;
+font-family: "Roboto", sans-serif;
+}
+
+#nav ul li:first-child a {
+color: #fff;
+}
+
+.hamburger {
+display: none;
+}
+.nav-links {
+align-items: center;
+}
+.nav-links .fa-moon {
+display: inherit;
+color: #fff;
+margin-left: 20px;
+font-size: 1.55rem;
+}
+.search-section {
+margin-top: 0;
+}
+.content {
+padding-left: 10%;
+}
+
+.text-content > h1 {
+width: 540px;
+font-size: 50px;
+font-weight: 300;
+font-family: "Raleway", sans-serif;
+margin-bottom: 20px;
+line-height: 55px;
+}
+.black {
+color: black;
+}
+
+.black2 {
+color: black;
+}
+
+/* 
+=====
+two
+==== 
+*/
+
+.heading {
+width: 50%;
+margin: 0 auto;
+font-size: 20px;
+}
+
+.heading > h1 {
+line-height: 45px;
+}
+
+.heading > p {
+line-height: 32px;
+}
+
+.container {
+flex-wrap: wrap;
+display: flex;
+
+justify-content: space-evenly;
+
+padding: 5%;
+}
+
+.info {
+text-align: start;
+line-height: 30px;
+letter-spacing: 1px;
+
+width: 28%;
+box-shadow: 0 1px 1px 0 rgb(10 16 34 / 20%);
+
+font-family: "Raleway", sans-serif;
+}
+
+/* 
+======
+half
+======
+*/
+
+#one-half {
+display: flex;
+
+justify-content: center;
+}
+.half-content {
+width: 40%;
+}
+
+.half__boxes {
+width: 100%;
+}
+#one-half span > img {
+width: 90%;
+margin-left: auto;
+}
+
+.half__text > h1 {
+font-size: 37px;
+font-weight: 600;
+}
+
+/*
+======== 
+four four four 
+========*/
+#four {
+display: flex;
+gap: 90px;
+padding: 10%;
+}
+
+/* five five five */
+#five {
+display: flex;
+padding: 10%;
+align-items: center;
+}
+
+.dog__image {
+min-width: 200px;
+height: 400px;
+}
+
+/* eight eight eight */
+
+.footer__container {
+display: flex;
+}
+.newsletter,
+.dog__categories {
+width: 30%;
+}
+.dog__care {
+width: 30%;
+}
+
+/* eight eight */
+.newsletter span > button {
+padding: 10px 30px;
+}
+
+#eight {
+padding: 90px 10%;
+}
+
+ul.nav-ul {
+display: none;
+color: white;
+}
+}
+
+@media screen and (min-width: 575px) {
+/* five five five */
+.dog__boxes {
+display: flex;
+padding: 0 10% 0 10%;
+}
+
+/* six six six  */
+
+#six h1 {
+max-width: 700px;
+font-size: 40px;
+}
+#six {
+padding-left: 10%;
+}
+
+/* eight eight eight */
+
+.copyright > p {
+margin-top: 20px;
+text-align: start;
+}
+.copyright {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+}
+
+
+
+.header {
+  font-size: 57px;
+  color: white;
+  font-family: Rubik Mono One;
+  flex-basis: 100%;
+}
+
+
+
+.footer {
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 2em;
+  gap: 10px;
+  display: flex;
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  background-color: var(--blk);
+}
+
+div.right {
+  margin: 0;
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  gap: 10px;
+  flex: 1;
+}
+
+div.left {
+  flex-basis: 100%;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  width: 50%;
+  flex-direction: column;
+  flex: 1;
+}
+
+textarea {
+  font-family: Azeret Mono;
+  box-sizing: border-box;
+  color: whitesmoke;
+  outline: none;
+  resize: none;
+  border: none;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: var(--lightblk);
+}
+
+.msg {
+  flex-basis: 100%;
+}
+
+div.bottom {
+  min-width: 0;
+  overflow-x: scroll;
+  padding: 1em;
+  gap: 2em;
+  color: grey;
+  width: 100%;
+  flex-basis: 100%;
+  display: flex;
+}
+
+.ftrtxt {
+  flex-basis: 100%;
+  font-size: 15px;
+  text-align: center;
+  font-family: Rubik Mono One;
+  color: grey;
+}
+
+.ftrhead {
+  font-size: 35px;
+}
+
+.ftrhead::after,
+.ftrtxt::after {
+  content: "\a";
+  white-space: pre;
+}
+
+.ftrlinks {
+  flex-basis: 1;
+}
+
+hr {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  flex-basis: 100%;
+  color: white;
+}
+
+svg {
+  fill: white;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+svg:hover {
+  transform: scale(1.1);
+  fill: grey;
+}
+
+::placeholder {
+  font-family: Azeret Mono;
+}
+
+#start {
+  margin-left: auto;
+}
+
+#end {
+  margin-right: auto;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+  height: 5px;
+  width: 2px;
+}
+
+#submitbtn {
+  display: none;
+  border-radius: 10px;
+  border: none;
+  font-family: Rubik Mono One;
+  font-size: 15px;
+  transition: 0.5s;
+}
+
+#submitbtn:hover {
+  background-color: var(--lightblk);
+  color: white;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    height: 0%;
+    border-radius: 10px;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+    border-radius: 10px;
+  }
+}
+
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background: #e4dbdb;
+}
+
+.card-section {
+    padding: 20px;
+}
+
+.card-section h2 {
+    margin-top: 0;
+}
+
+.card-section input[type="file"],
+.card-section button {
+    margin-bottom: 10px;
+}
+
+.card-section button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card-section button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+    <section id="one">
+        <nav id="nav">
+
+            <div class="nav-logo">
+                <div class="nav-heading">
+                    <span href="#"><i class="fas fa-paw logo white"></i>CoinSpectra</span>
+
+                </div>
+
+                <!-- <div class="hamburger">
+                    <a href="#"><i class="far fa-moon white "></i></a>
+                    <a href="#"><i class="fas fa-bars "></i></a>
+
+                </div> -->
+            </div>
+
+            <ul class="nav-links">
+
+                <li><a>HOME</a></li>
+                <li><a href="/museums">MUSEUMS</a></li>
+                <li><a href="/coin">Coin Prediction</a></li>
+                <li><a href="/about">ABOUT</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+
+            </ul>
+
+
+        </nav>
+
+
+
+        <div class="content">
+            <div class="text-content">
+                <h1 class="white">Unearth the Riches of History: Where Every Coin <strong>Tells a Tale.</strong>
+                </h1>
+                <h4 class="blackish"></h4>
+                <div class="two-button">
+                    <button class="w-btn btn" style="color: white;">View Our Services</button>
+                    
+                </div>
+
+            </div>
+
+           
+
+    </section>
+
+
+
+   
+ <h1 style="text-align: center;">Check your coin here</h1>
+            <!-- Navigation links go here -->
+       
+    
+        <!-- <section id="upload-section">
+            <h2>Upload Your Coin Image</h2>
+            <input type="file" id="coinImage" accept="image/*">
+            <button onclick="detectCoin()">Detect Coin</button>
+        </section>
+    
+        <section id="coin-details">
+            <h2>Coin Details</h2>
+            <div id="coinImageDisplay"></div>
+            <p id="coinAttributes"></p>
+            <button onclick="predictPrice()">Predict Price</button>
+            <p id="predictedPrice"></p>
+        </section>
+     -->
+     <div class="card">
+      <section id="upload-section" class="card-section">
+          <h2>Upload Your Coin Image</h2>
+          <br><br>
+          <input type="file" id="coinImage" accept="image/*">
+          <button onclick="detectCoin()">Detect Coin</button>
+      </section>
+  </div>
+  
+  <div class="card">
+      <section id="coin-details" class="card-section">
+          <h2>Coin Details</h2>
+          <div id="coinImageDisplay"></div>
+          <p id="coinAttributes"></p>
+          <button onclick="predictPrice()">Predict Price</button>
+          <p id="predictedPrice"></p>
+      </section>
+  </div>
+  
+       
+
+    <section id="seven" class="goblack">
+        <div class="heading ">
+            <h1>Upcoming Events</h1>
+            <p class="lightblack">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero atque quos illo minus enim beatae magni, quae assumenda. Quas, blanditiis.</p>
+
+        </div>
+
+
+        <div class="container container__bg goblack">
+            <div class="info goblack">
+                <span><img src="https://media.istockphoto.com/id/1404851768/photo/golden-and-shiny-ancient-roman-coins-falling-on-black-background-3d-render.jpg?s=612x612&w=0&k=20&c=PM_bo4SZBnXrCCZ1meWjH3FX_qHRxU-0fiT611WPWnU=" alt=""></span>
+                <div class="info__text">
+                    <pre>                                  09 Feb 2024 - 11 Feb 2024</pre>
+                    <h1>INDIA INTERNATIONAL HOBBYEXPO II
+                       Haldiram Banquet Hall, 3rd Floor, Ballygunge Park, Kolkata -700019
+                       Kolkata Hobby Dealers Association</h1>
+
+
+
+                       <a href="">Read more</a>
+                </div>
+            </div>
+            <div class="info goblack">
+                <span><img src="https://media.istockphoto.com/id/1404851768/photo/golden-and-shiny-ancient-roman-coins-falling-on-black-background-3d-render.jpg?s=612x612&w=0&k=20&c=PM_bo4SZBnXrCCZ1meWjH3FX_qHRxU-0fiT611WPWnU=" alt=""></span>
+                <div class="info__text">
+                    <pre>                                  09 Feb 2024 - 11 Feb 2024</pre>
+                    <h1>SONICA COIN & CURRENCY EXHIBITION
+                      
+                        HADP HALL, BOTANICAL GARDEN ROAD, OOTY
+                       HADP HALL, BOTANICAL GARDEN ROAD, OOTY</h1>
+
+
+
+                 <a href="">Read more</a>
+                </div>
+            </div>
+            <div class="info goblack">
+                <span><img src="https://media.istockphoto.com/id/1404851768/photo/golden-and-shiny-ancient-roman-coins-falling-on-black-background-3d-render.jpg?s=612x612&w=0&k=20&c=PM_bo4SZBnXrCCZ1meWjH3FX_qHRxU-0fiT611WPWnU=" alt=""></span>
+                <div class="info__text">
+                    <pre>                                   23 Feb 2024 - 25 Feb 2024</pre>
+                    <h1>15TH NATIONAL NUMISMATIC EXHIBITION
+                      
+                        Shikshak Sadan, Kempe Gowda Road (Opp. to Kaveri Bhavan), Nagarathpete, Bengaluru, Karnataka 560002
+                       Organised by Marudhar Arts, Bangalore</h1>
+
+
+
+                       <a href="">Read more</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+            <div class="footer">
+              <span class="header">Contact Us</span>
+              <div class="left">
+                <textarea placeholder="Name" class="name"></textarea>
+                <textarea placeholder="Email/Contact" class="email"></textarea>
+              </div>
+              <div class="right">
+                <textarea placeholder="Message" class="msg"></textarea>
+                <button id="submitbtn">></button>
+              </div>
+              <hr>
+              <div class="bottom">
+                <div class="ftrlinks" id="start">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 496 512">
+                    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                  </svg>
+                </div>
+                <div class="ftrlinks">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                  </svg>
+                </div>
+                <div class="ftrlinks">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
+                    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z" />
+                  </svg>
+                </div>
+               
+               
+               
+              </div>
+              <span class="ftrtxt">Copyright @2023</span>
+            </div>
+    
+
+
+    
+    <script src="script.js"></script>
+ 
+
+    <script>
+        let x = document.querySelector(" .night")
+        
+        x.addEventListener('click', () => {
+            let y = document.querySelectorAll('.goblack')
+
+
+
+
+
+
+
+            for (let i = 0; i < y.length; i += 1) {
+
+                y.item(i).classList.toggle("dark-mode");
+            }
+
+
+
+        })
+    </script>
+</body>
+</html>

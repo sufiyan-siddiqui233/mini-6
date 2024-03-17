@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+/* ------------------------------------
+    CSS Variables
+------------------------------------ */
+
+:root {
+  /* Colors */
+  --primary: #17202a;
+  --secondary: #ffffff;
+  --acent: #bd2a28;
+  --white: #ffffff;
+  --text-color: #b8c4cc; /* Text Color */
+  --border-color: #888888; /* Border Color */
+
+  --drop-shadow: rgba(0, 0, 0, 0.2);
+  --inner-shadow: rgba(0, 0, 0, 0.2);
+  --inner-shadow-2: rgba(255, 255, 255, 0.2);
+
+  /* Font-family */
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+
+  /* Font-size */
+  --text-small: 13px;
+  --base-text: 16px;
+  --text-large: 18px;
+
+  --heading1: 42px;
+  --heading2: 33px;
+  --heading3: 28px;
+  --heading4: 23px;
+  --heading5: 19px;
+
+  /* Line height */
+  --text-small-line-height: 1rem;
+  --base-line-height: 1.3rem;
+  --text-large-line-height: 1.4rem;
+
+  --heading1-line-height: 3.1rem;
+  --heading2-line-height: 2.5rem;
+  --heading3-line-height: 2.1rem;
+  --heading4-line-height: 1.7rem;
+  --heading5-line-height: 1.4rem;
+
+  /* Font weight */
+  --fontWeight-regular: 400;
+  --fontWeight-medium: 500;
+  --fontWeight-semibold: 600;
+  --fontWeight-bold: 900;
+
+  /* Spacing */
+
+  /* Padding */
+  --large-btn-padding: 12px 24px;
+  --small-btn-padding: 6px 16px;
+  --extra-small-btn-padding: 6px 14px;
+
+  /* Border & Line */
+  --box-border: 1px solid var(--border-color);
+  --line: 1px solid var(--border-color);
+
+  /* Shadow */
+  --drow-shadow: 0px 5px 20px 0px var(--drop-shadow);
+  --inner-shadow: 0px 0px 10px 0px var(--inner-shadow) inset;
+  --inner-shadow-2: 0px 0px 20px 0px var(--inner-shadow-2) inset;
+
+  /* Rounder, Radious, Circle */
+  --btn-radius: 12px;
+  --box-radius: 12px;
+
+  /* Transition */
+  --transition: all 0.3s ease-in-out;
+  --lazy-transition: all 0.6s ease-in-out;
+}
+
+/* ------------------------------------
+    Common Css / Class
+------------------------------------ */
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--base-text);
+  font-weight: var(--fontWeight-regular);
+  line-height: var(--base-line-height);
+  color: var(--text-color);
+  background-color: var(--primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+p {
+  font-size: var(--base-text);
+  font-weight: var(--fontWeight-regular);
+  line-height: var(--base-line-height);
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  color: var(--secondary);
+  font-weight: var(--fontWeight-bold);
+}
+
+.transition-lazy {
+  transition: var(--lazy-transition);
+}
+
+.fill-btn {
+  font-size: var(--base-text);
+  font-weight: var(--fontWeight-regular);
+  color: var(--white);
+  outline: none;
+  cursor: pointer;
+  border: 1px solid var(--acent);
+  background-color: var(--acent);
+  transition: var(--transition);
+}
+
+.fill-btn:hover {
+  background-color: #cc3333;
+  color: var(--white);
+  box-shadow: inset 0 0px 10px 5px #750c0c;
+}
+
+.outline-btn {
+  font-family: var(--font-primary);
+  font-weight: var(--fontWeight-regular);
+  color: var(--white);
+  border: 1px solid var(--acent);
+  padding: var(--btn-padding);
+  transition: var(--transition);
+}
+
+.outline-btn:hover {
+  background-color: var(--acent);
+  color: var(--white);
+  border: 1px solid var(--acent);
+}
+
+.btn-large {
+  font-size: var(--base-text);
+  padding: var(--large-btn-padding);
+  border-radius: var(--btn-radius);
+}
+
+.btn-small {
+  font-size: var(--text-small);
+  padding: var(--small-btn-padding);
+  border-radius: 8px;
+}
+
+/* Icons */
+.outline-icon {
+  font-size: var(--text-small);
+  font-weight: var(--fontWeight-regular);
+  color: var(--text-color);
+  cursor: pointer;
+  outline: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outline-icon:hover,
+.outline-icon.active {
+  background-color: var(--acent);
+  color: var(--white);
+}
+
+.fill-icon {
+  font-size: var(--text-small);
+  font-weight: var(--fontWeight-regular);
+  color: var(--acent);
+  cursor: pointer;
+}
