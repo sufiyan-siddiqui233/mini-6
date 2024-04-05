@@ -970,3 +970,45 @@ justify-content: space-between;
 }
 }
 
+#nav {
+    background-color: #040404;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-heading {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-right: 20px;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #ffa500;
+  }
+
+  .nav-links a.active {
+    color: #ffa500;
+  }

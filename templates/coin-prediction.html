@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Form</title>
+    <style>
+      #nav {
+        background-color: #040404;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-heading {
+        font-size: 20px;
+        margin-left: 10px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-right: 20px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #ffa500;
+      }
+
+      .nav-links a.active {
+        color: #ffa500;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav">
+      <div class="nav-logo">
+        <div class="nav-heading">
+          <span href="#"><i class="fas fa-paw logo white"></i>CoinSpectra</span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="/index">HOME</a></li>
+        <li><a href="/museums">MUSEUMS</a></li>
+        <li><a href="/coin">COIN PREDICTION</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="/contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <h1>Price Prediction Form</h1>
+    <form action="/predict" method="post">
+      <label for="autoPay">Auto Pay :</label>
+      <input type="number" id="autoPay" name="autoPay" /><br /><br />
+
+      <label for="topRatedListing">Top Rated Listing :</label>
+      <input
+        type="number"
+        id="topRatedListing"
+        name="topRatedListing"
+      /><br /><br />
+
+      <label for="bestOfferEnabled">Best Offer Enabled :</label>
+      <input
+        type="number"
+        id="bestOfferEnabled"
+        name="bestOfferEnabled"
+      /><br /><br />
+
+      <label for="buyItNowAvailable">Buy It Now Available :</label>
+      <input
+        type="number"
+        id="buyItNowAvailable"
+        name="buyItNowAvailable"
+      /><br /><br />
+
+      <label for="expeditedShipping">Expedited Shipping :</label>
+      <input
+        type="number"
+        id="expeditedShipping"
+        name="expeditedShipping"
+      /><br /><br />
+
+      <label for="sellerInUS">Seller in US :</label>
+      <input type="number" id="sellerInUS" name="sellerInUS" /><br /><br />
+
+      <label for="gold">Gold :</label>
+      <input type="number" id="gold" name="gold" /><br /><br />
+
+      <label for="silver">Silver :</label>
+      <input type="number" id="silver" name="silver" /><br /><br />
+
+      <label for="LessThanWeek">Less Than Week :</label>
+      <input type="number" id="LessThanWeek" name="LessThanWeek" /><br /><br />
+
+      <label for="LessThanMonth">Less Than Month :</label>
+      <input
+        type="number"
+        id="LessThanMonth"
+        name="LessThanMonth"
+      /><br /><br />
+
+      <label for="MoreThanYear">More Than Year :</label>
+      <input type="number" id="MoreThanYear" name="MoreThanYear" /><br /><br />
+
+      <label for="highQualityWords">High Quality Words:</label>
+      <input
+        type="number"
+        id="highQualityWords"
+        name="highQualityWords"
+      /><br /><br />
+
+      <label for="lowQualityWords">Low Quality Words:</label>
+      <input
+        type="number"
+        id="lowQualityWords"
+        name="lowQualityWords"
+      /><br /><br />
+
+      <label for="Calculated">Calculated :</label>
+      <input type="number" id="Calculated" name="Calculated" /><br /><br />
+
+      <label for="Free">Free :</label>
+      <input type="number" id="Free" name="Free" /><br /><br />
+
+      <label for="FreePickup">Free Pickup :</label>
+      <input type="number" id="FreePickup" name="FreePickup" /><br /><br />
+
+      <label for="Auction">Auction :</label>
+      <input type="number" id="Auction" name="Auction" /><br /><br />
+
+      <label for="FixedPrice">Fixed Price :</label>
+      <input type="number" id="FixedPrice" name="FixedPrice" /><br /><br />
+
+      <label for="bronze">Bronze :</label>
+      <input type="number" id="bronze" name="bronze" /><br /><br />
+
+      <label for="copper">Copper :</label>
+      <input type="number" id="copper" name="copper" /><br /><br />
+
+      <label for="augustus">Augustus :</label>
+      <input type="number" id="augustus" name="augustus" /><br /><br />
+
+      <label for="commodus">Commodus :</label>
+      <input type="number" id="commodus" name="commodus" /><br /><br />
+
+      <label for="domitian">Domitian :</label>
+      <input type="number" id="domitian" name="domitian" /><br /><br />
+
+      <label for="macrinus">Macrinus :</label>
+      <input type="number" id="macrinus" name="macrinus" /><br /><br />
+
+      <label for="nero">Nero :</label>
+      <input type="number" id="nero" name="nero" /><br /><br />
+
+      <label for="nerva">Nerva :</label>
+      <input type="number" id="nerva" name="nerva" /><br /><br />
+
+      <label for="otho">Otho :</label>
+      <input type="number" id="otho" name="otho" /><br /><br />
+
+      <label for="philip">Philip :</label>
+      <input type="number" id="philip" name="philip" /><br /><br />
+
+      <label for="septimius_severus">Septimius Severus :</label>
+      <input
+        type="number"
+        id="septimius_severus"
+        name="septimius_severus"
+      /><br /><br />
+
+      <label for="tiberius">Tiberius :</label>
+      <input type="number" id="tiberius" name="tiberius" /><br /><br />
+
+      <label for="valerian">Valerian :</label>
+      <input type="number" id="valerian" name="valerian" /><br /><br />
+
+      <label for="noneOfAbove">None of Above :</label>
+      <input type="number" id="noneOfAbove" name="noneOfAbove" /><br /><br />
+
+      <label for="otherShip">Other Ship :</label>
+      <input type="number" id="otherShip" name="otherShip" /><br /><br />
+
+      <input type="submit" value="Predict" />
+    </form>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Price Prediction</title>
+</head>
+<body>
+    <h1>Coin Price Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="autoPay">Auto Pay:</label>
+        <select id="autoPay" name="autoPay">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="topRatedListing">Top Rated Listing:</label>
+        <select id="topRatedListing" name="topRatedListing">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="bestOfferEnabled">Best Offer Enabled:</label>
+        <select id="bestOfferEnabled" name="bestOfferEnabled">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="buyItNowAvailable">Buy It Now Available:</label>
+        <select id="buyItNowAvailable" name="buyItNowAvailable">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="expeditedShipping">Expedited Shipping:</label>
+        <select id="expeditedShipping" name="expeditedShipping">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="sellerInUS">Seller in US:</label>
+        <select id="sellerInUS" name="sellerInUS">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="metalType">Metal Type:</label>
+        <select id="metalType" name="metalType">
+            <option value="Gold">Gold</option>
+            <option value="Silver">Silver</option>
+            <option value="Copper">Copper</option>
+            <option value="Bronze">Bronze</option>
+        </select><br><br>
+
+        <label for="time">Time:</label>
+        <select id="time" name="time">
+            <option value="Less_than_week">Less than a week</option>
+            <option value="Less_than_month">Less than a month</option>
+            <option value="More_than_year">More than a year</option>
+        </select><br><br>
+
+        <label for="typeOfShipping">Type of Shipping:</label>
+        <select id="typeOfShipping" name="typeOfShipping">
+            <option value="Calculated">Calculated</option>
+            <option value="Free">Free</option>
+            <option value="FreePickup">Free Pickup</option>
+            <option value="Other Shipping">Other Shipping</option>
+        </select><br><br>
+
+        <label for="typeOfSelling">Type of Selling:</label>
+        <select id="typeOfSelling" name="typeOfSelling">
+            <option value="Auction">Auction</option>
+            <option value="Fixed Price">Fixed Price</option>
+        </select><br><br>
+
+        <label for="emperorName">Name of Emperor:</label>
+        <select id="emperorName" name="emperorName">
+            <option value="Valerian">Valerian</option>
+            <option value="Philip">Philip</option>
+            <option value="Commodus">Commodus</option>
+            <option value="Domitian">Domitian</option>
+            <option value="Augustus">Augustus</option>
+            <option value="Nero">Nero</option>
+            <option value="Septimius Severus">Septimius Severus</option>
+            <option value="Macrinus">Macrinus</option>
+            <option value="Otho">Otho</option>
+            <option value="Nerva">Nerva</option>
+            <option value="Tiberius">Tiberius</option>
+            <option value="None_of_above">None of the above</option>
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+
+</html> -->

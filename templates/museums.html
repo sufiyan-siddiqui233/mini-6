@@ -1,282 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Form</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                margin: 0;
-                padding:25%;
-                justify-content: center;
-            }
-    
-            .container {
-                max-width: 600px;
-                margin: 50px auto;
-                background-color: #fff;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                padding: 30px;
-            }
-    
-            h1 {
-                text-align: center;
-                color: #333;
-            }
-    
-            label {
-                font-weight: bold;
-                display: block;
-                margin-bottom: 5px;
-            }
-    
-            input[type="text"] {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 20px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-    
-            input[type="submit"] {
-                width: 100%;
-                padding: 10px;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-    
-            input[type="submit"]:hover {
-                background-color: #0056b3;
-            }
-        </style>
-   
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harvard Art Museums - Images</title>
+    <style>
+      #nav {
+        background-color: #040404;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
 
+      .nav-logo {
+        display: flex;
+        align-items: center;
+      }
 
-</head>
-<body>
-    <h1>Price Prediction Form</h1>
-    <form action="/predict" method="post">
-        <label for="autoPay">Auto Pay (Yes/No):</label>
-        <input type="number" id="autoPay" name="autoPay"><br><br>
-        
-        <label for="topRatedListing">Top Rated Listing (Yes/No):</label>
-        <input type="number" id="topRatedListing" name="topRatedListing"><br><br>
-        
-        <label for="bestOfferEnabled">Best Offer Enabled (Yes/No):</label>
-        <input type="number" id="bestOfferEnabled" name="bestOfferEnabled"><br><br>
-        
-        <label for="buyItNowAvailable">Buy It Now Available (Yes/No):</label>
-        <input type="number" id="buyItNowAvailable" name="buyItNowAvailable"><br><br>
-        
-        <label for="expeditedShipping">Expedited Shipping (Yes/No):</label>
-        <input type="number" id="expeditedShipping" name="expeditedShipping"><br><br>
-        
-        <label for="sellerInUS">Seller in US (Yes/No):</label>
-        <input type="number" id="sellerInUS" name="sellerInUS"><br><br>
-        
-        <label for="gold">Gold (Yes/No):</label>
-        <input type="number" id="gold" name="gold"><br><br>
-        
-        <label for="silver">Silver (Yes/No):</label>
-        <input type="number" id="silver" name="silver"><br><br>
-        
-        <label for="LessThanWeek">Less Than Week (Yes/No):</label>
-        <input type="number" id="LessThanWeek" name="LessThanWeek"><br><br>
-        
-        <label for="LessThanMonth">Less Than Month (Yes/No):</label>
-        <input type="number" id="LessThanMonth" name="LessThanMonth"><br><br>
-        
-        <label for="MoreThanYear">More Than Year (Yes/No):</label>
-        <input type="number" id="MoreThanYear" name="MoreThanYear"><br><br>
-        
-        <label for="highQualityWords">High Quality Words:</label>
-        <input type="number" id="highQualityWords" name="highQualityWords"><br><br>
-        
-        <label for="lowQualityWords">Low Quality Words:</label>
-        <input type="number" id="lowQualityWords" name="lowQualityWords"><br><br>
-        
-        <label for="Calculated">Calculated (Yes/No):</label>
-        <input type="number" id="Calculated" name="Calculated"><br><br>
-        
-        <label for="Free">Free (Yes/No):</label>
-        <input type="number" id="Free" name="Free"><br><br>
-        
-        <label for="FreePickup">Free Pickup (Yes/No):</label>
-        <input type="number" id="FreePickup" name="FreePickup"><br><br>
-        
-        <label for="Auction">Auction (Yes/No):</label>
-        <input type="number" id="Auction" name="Auction"><br><br>
-        
-        <label for="FixedPrice">Fixed Price (Yes/No):</label>
-        <input type="number" id="FixedPrice" name="FixedPrice"><br><br>
-        
-        <label for="bronze">Bronze (Yes/No):</label>
-        <input type="number" id="bronze" name="bronze"><br><br>
-        
-        <label for="copper">Copper (Yes/No):</label>
-        <input type="number" id="copper" name="copper"><br><br>
-        
-        <label for="augustus">Augustus (Yes/No):</label>
-        <input type="number" id="augustus" name="augustus"><br><br>
-        
-        <label for="commodus">Commodus (Yes/No):</label>
-        <input type="number" id="commodus" name="commodus"><br><br>
-        
-        <label for="domitian">Domitian (Yes/No):</label>
-        <input type="number" id="domitian" name="domitian"><br><br>
-        
-        <label for="macrinus">Macrinus (Yes/No):</label>
-        <input type="number" id="macrinus" name="macrinus"><br><br>
-        
-        <label for="nero">Nero (Yes/No):</label>
-        <input type="number" id="nero" name="nero"><br><br>
-        
-        <label for="nerva">Nerva (Yes/No):</label>
-        <input type="number" id="nerva" name="nerva"><br><br>
-        
-        <label for="otho">Otho (Yes/No):</label>
-        <input type="number" id="otho" name="otho"><br><br>
-        
-        <label for="philip">Philip (Yes/No):</label>
-        <input type="number" id="philip" name="philip"><br><br>
-        
-        <label for="septimius_severus">Septimius Severus (Yes/No):</label>
-        <input type="number" id="septimius_severus" name="septimius_severus"><br><br>
-        
-        <label for="tiberius">Tiberius (Yes/No):</label>
-        <input type="number" id="tiberius" name="tiberius"><br><br>
-        
-        <label for="valerian">Valerian (Yes/No):</label>
-        <input type="number" id="valerian" name="valerian"><br><br>
-        
-        <label for="noneOfAbove">None of Above (Yes/No):</label>
-        <input type="number" id="noneOfAbove" name="noneOfAbove"><br><br>
-        
-        <label for="otherShip">Other Ship (Yes/No):</label>
-        <input type="number" id="otherShip" name="otherShip"><br><br>
-        
-        <input type="submit" value="Predict">
-    </form>
-</body>
+      .nav-heading {
+        font-size: 20px;
+        margin-left: 10px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-right: 20px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #ffa500;
+      }
+
+      .nav-links a.active {
+        color: #ffa500;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 0;
+      }
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+        margin-top: 20px;
+      }
+      .image-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .image-item:hover {
+        transform: translateY(-5px);
+      }
+      .image-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .image-details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .image-item:hover .image-details {
+        opacity: 1;
+      }
+      .image-details p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav">
+      <div class="nav-logo">
+        <div class="nav-heading">
+          <span href="#"><i class="fas fa-paw logo white"></i>CoinSpectra</span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/museums">MUSEUMS</a></li>
+        <li><a href="/coin">COIN PREDICTION</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="/contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1>Harvard Art Museums - Images</h1>
+      <div class="image-grid">
+        {% for record in data.records %}
+        <div class="image-item">
+          <img src="{{ record.baseimageurl }}" alt="Image" />
+          <div class="image-details">
+            <p><strong>Technique:</strong> {{ record.technique }}</p>
+            <p><strong>Date:</strong> {{ record.date }}</p>
+            <p>
+              <strong>Dimensions:</strong> {{ record.width }} x {{ record.height
+              }}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div style="text-align: center">
+        {% if data.info.page > 1 %}
+        <a href="{{ data.info.prev }}">Previous Page</a>
+        {% endif %}
+        <span>Page {{ data.info.page }} of {{ data.info.pages }}</span>
+        {% if data.info.next %}
+        <a href="{{ data.info.next }}">Next Page</a>
+        {% endif %}
+      </div>
+    </div>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coin Price Prediction</title>
-</head>
-<body>
-    <h1>Coin Price Prediction</h1>
-    <form action="/predict" method="post">
-        <label for="autoPay">Auto Pay:</label>
-        <select id="autoPay" name="autoPay">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select><br><br>
-
-        <label for="topRatedListing">Top Rated Listing:</label>
-        <select id="topRatedListing" name="topRatedListing">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select><br><br>
-
-        <label for="bestOfferEnabled">Best Offer Enabled:</label>
-        <select id="bestOfferEnabled" name="bestOfferEnabled">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select><br><br>
-
-        <label for="buyItNowAvailable">Buy It Now Available:</label>
-        <select id="buyItNowAvailable" name="buyItNowAvailable">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select><br><br>
-
-        <label for="expeditedShipping">Expedited Shipping:</label>
-        <select id="expeditedShipping" name="expeditedShipping">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select><br><br>
-
-        <label for="sellerInUS">Seller in US:</label>
-        <select id="sellerInUS" name="sellerInUS">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select><br><br>
-
-        <label for="metalType">Metal Type:</label>
-        <select id="metalType" name="metalType">
-            <option value="Gold">Gold</option>
-            <option value="Silver">Silver</option>
-            <option value="Copper">Copper</option>
-            <option value="Bronze">Bronze</option>
-        </select><br><br>
-
-        <label for="time">Time:</label>
-        <select id="time" name="time">
-            <option value="Less_than_week">Less than a week</option>
-            <option value="Less_than_month">Less than a month</option>
-            <option value="More_than_year">More than a year</option>
-        </select><br><br>
-
-        <label for="typeOfShipping">Type of Shipping:</label>
-        <select id="typeOfShipping" name="typeOfShipping">
-            <option value="Calculated">Calculated</option>
-            <option value="Free">Free</option>
-            <option value="FreePickup">Free Pickup</option>
-            <option value="Other Shipping">Other Shipping</option>
-        </select><br><br>
-
-        <label for="typeOfSelling">Type of Selling:</label>
-        <select id="typeOfSelling" name="typeOfSelling">
-            <option value="Auction">Auction</option>
-            <option value="Fixed Price">Fixed Price</option>
-        </select><br><br>
-
-        <label for="emperorName">Name of Emperor:</label>
-        <select id="emperorName" name="emperorName">
-            <option value="Valerian">Valerian</option>
-            <option value="Philip">Philip</option>
-            <option value="Commodus">Commodus</option>
-            <option value="Domitian">Domitian</option>
-            <option value="Augustus">Augustus</option>
-            <option value="Nero">Nero</option>
-            <option value="Septimius Severus">Septimius Severus</option>
-            <option value="Macrinus">Macrinus</option>
-            <option value="Otho">Otho</option>
-            <option value="Nerva">Nerva</option>
-            <option value="Tiberius">Tiberius</option>
-            <option value="None_of_above">None of the above</option>
-        </select><br><br>
-
-        <input type="submit" value="Predict">
-    </form>
-</body>
-
-</html> -->

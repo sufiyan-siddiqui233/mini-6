@@ -229,19 +229,6 @@ margin-top: 20px;
 padding: 10px;
 }
 
-.hamburger {
-display: flex;
-color: white;
-gap: 20px;
-align-items: center;
-margin-right: 10px;
-}
-.hamburger .fa-bars {
-padding: 0.5em;
-background: #f85a40;
-color: #fff;
-border-radius: 3px;
-}
 .content {
 padding-left: 5%;
 }
@@ -1213,7 +1200,7 @@ svg:hover {
 
                 <li><a>HOME</a></li>
                 <li><a href="/museums">MUSEUMS</a></li>
-                <li><a href="/coin">Coin Prediction</a></li>
+                <li><a href="/coin">COIN PREDICTION</a></li>
                 <li><a href="/about">ABOUT</a></li>
                 <li><a href="/contact">CONTACT</a></li>
 
@@ -1230,7 +1217,7 @@ svg:hover {
                 </h1>
                 <h4 class="blackish"></h4>
                 <div class="two-button">
-                    <button class="w-btn btn" style="color: white;">View Our Services</button>
+                    <button class="w-btn btn" style="color: white;">  <a href="/about"> View Our Services</a></button>
                     
                 </div>
 
@@ -1261,15 +1248,21 @@ svg:hover {
             <p id="predictedPrice"></p>
         </section>
      -->
-     <div class="card">
+
+     <h1>Upload Image</h1>
+     <form action="/classify" method="post" enctype="multipart/form-data">
+         <input type="file" name="file">
+         <input type="submit" value="Classify">
+     </form>
+     <!-- <div class="card">
       <section id="upload-section" class="card-section">
           <h2>Upload Your Coin Image</h2>
           <br><br>
           <input type="file" id="coinImage" accept="image/*">
           <button onclick="detectCoin()">Detect Coin</button>
-      </section>
-  </div>
-  
+       </section>
+     </div> -->
+   
   <div class="card">
       <section id="coin-details" class="card-section">
           <h2>Coin Details</h2>
@@ -1285,7 +1278,7 @@ svg:hover {
     <section id="seven" class="goblack">
         <div class="heading ">
             <h1>Upcoming Events</h1>
-            <p class="lightblack">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero atque quos illo minus enim beatae magni, quae assumenda. Quas, blanditiis.</p>
+            <p class="lightblack">Explore a world of cultural wonders at our upcoming events, where art, history, and innovation collide in captivating exhibitions and immersive experiences. Join us for an unforgettable journey through creativity and discovery.</p>
 
         </div>
 
